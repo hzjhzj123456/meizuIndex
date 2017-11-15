@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/swiper-3.4.2.min.css" />
+		<script type="text/javascript" src="js/angular.min.js" ></script>
+		<script type="text/javascript" src="js/jquery-1.11.0.js" ></script>
+		<script type="text/javascript" src="js/swiper-3.4.2.min.js" ></script>
+	</head>
+	<body ng-app='meizu' ng-controller='nav'>
+		<div class='{{classname}}'ng-mouseleave='navleave()'>
+			<div class='left'><img src='images/logo-new-toggle_294da7f.png'></div>
+			<div class='right'>
+				<span ng-repeat='x in navlist' ng-mouseover='changebg($event,$index)' ng-mouseleave='leavebg($event,$index)'>{{x}}</span>
+			</div>
+			<div class='icon'>
+				<span ng-mouseover='denglus()'><a href='#'><img src='images/icon-user_032dea3.png'/></a></span>
+				<span><a href='#'><img src='images/shopping-cart-gray_56ba6ef.png'/></a></span>
+			</div>
+			<div class='nav-animation'>
+				<div class='meizu'>
+					<div style="{{'transition: all 1s '+ $index * 0.15 + 's'}}" ng-repeat='x in meizu'>
+						<a href='#'>
+							<img ng-src='{{x.imgsrc}}'>
+							<span>{{x.content}}</span>
+						</a>
+					</div>
+				</div>
+				<div class='meilan'>
+					<div ng-repeat='x in meilan'>
+						<a href='#'>
+							<img ng-src='{{x.imgsrc}}'>
+							<span>{{x.content}}</span>
+						</a>
+					</div>
+				</div>
+				<div class='shengxue'>
+					<div ng-repeat='x in shengxue'>
+						<a href='#'>
+							<img ng-src='{{x.imgsrc}}'>
+							<span>{{x.content}}</span>
+						</a>
+					</div>
+				</div>
+				<div class='peijian'>
+					<div ng-repeat='x in peijian'>
+						<a href='#'>
+							<img ng-src='{{x.imgsrc}}'>
+							<span>{{x.content}}</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div ng-class='{"denglu":denglu,"xiaoshi":xiaoshi}' ng-mouseenter='dengluleave()'>
+				<ul>
+					<li><a href=''>立即登录</a></li>
+					<li><a href=''>立即注册</a></li>
+					<li><a href=''>我的订单</a></li>
+					<li><a href=''>M码通道</a></li>
+				</ul>
+		</div>
+		<div class='top-nav'>
+			<div class='nav-container'>
+				<ul>
+					<li ng-repeat='x in topnavlist'>
+						<a href='#'>
+							{{x}}
+						</a>
+						<i></i>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class='right-nav'>
+			<ul>
+				<li>
+					<a href='#'>
+						<span><img src='images/shopping-cart-gray_56ba6ef.png'></span>
+						<span>购物车</span>
+					</a>
+				</li>
+				<li>
+					<a href='#'>
+						<span><img src='images/shopping-cart-gray_56ba6ef.png'></span>
+						<span>购物车</span>
+					</a>
+				</li>
+				<li>
+					<a href=''>
+						<span><img src='images/shopping-cart-gray_56ba6ef.png'></span>
+						<span>回到顶部</span>
+					</a>
+				</li>
+			</ul>
+			<div class='erweima'></div>
+		</div>
+    	<div class='lunbotu'>
+    		<div class="swiper-container lunbo">
+			    <div class="swiper-wrapper">
+			      <div class="swiper-slide"><img src="images/Cgbj0FmEITqABgOLAAIMkmQZeYI148.jpg"/></div>
+			      <div class="swiper-slide"><img src='images/Cgbj0FmK3a2AGKZ5AAQ5lTIZkDU299.jpg'/></div>
+			      <div class="swiper-slide"><img src="images/Cgbj0VkZddGAXy5TAAZiF3gMcIc266.jpg"/></div>
+			      <div class="swiper-slide"><img src="images/Cgbj0Vl4mf-APeq9AAILQSGcG1Q457.jpg"/></div>
+			      <div class="swiper-slide"><img src="images/Cgbj0VlsJE2AGbaUAAL8_9_-X3Y737.jpg"/></div>
+			    </div>
+			    <div class="swiper-pagination"></div>
+		  </div>
+    	</div>
+    	<div class='brick-wrapper'>
+		  	<div class='brick-cile' ng-repeat='x in bricklist'>
+		  		<a href='#'>
+		  			<img ng-src='{{x.img}}'/>
+		  			<h4>{{x.title}}</h4>
+		  			<span>{{x.content}}</span>
+		  		</a>
+		  	</div>
+		</div>
+		<div class='accessory'>
+			<div class='accessory-left'>
+				<a href='#'>
+					<img src='images/Cgbj0Fl4q5iAcl5YAAED7HWBsjM999 (1).png' />
+				</a>
+			</div>
+			<div class='accessory-right'>
+				<ul>
+					<li ng-repeat='x in accessorylist'>
+						<a href='#'>
+							<img ng-src='{{x.img}}'/>
+							<span>{{x.content}}</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class='static-phone'>
+			<ul>
+				<li ng-repeat='x in staticlist'>
+					<a href='#' ng-mouseover='phonetrans($event,$index)' ng-mouseleave='phoneleave($event,$index)'>
+						<div class='big-img'>
+							<img ng-class='{"after":after,"left":left}'ng-src='{{x.img2}}'/>
+							<img ng-class='{"before":before,"right":right}'ng-src='{{x.img1}}'/>
+						</div>
+						<div class='phonetext'>
+							<div>{{x.title}}</div>
+							<div>{{x.content}}</div>
+							<div>{{x.money}}</div>
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class='find-phone'>
+			<div class="swiper-container findPhone">
+			    <div class="swiper-wrapper">
+			      <div class="swiper-slide">
+			      	<div ng-repeat='x in findphone1'>
+			      		<a href='#'>
+				      		<img ng-src="{{x.img}}" />
+				      		<div class='content'>
+				      			<div>{{x.title}}</div>
+				      			<div>{{x.content}}</div>
+				      			<div>{{x.money}}</div>
+				      		</div>
+			      		</a>
+			      	</div>
+			      </div>
+			      <div class="swiper-slide">
+			      	<div ng-repeat='x in findphone1'>
+			      		<a href='#'>
+				      		<img ng-src="{{x.img}}" />
+				      		<div class='content'>
+				      			<div>{{x.title}}</div>
+				      			<div>{{x.content}}</div>
+				      			<div>{{x.money}}</div>
+				      		</div>
+			      		</a>
+			      	</div>
+			      </div>
+			      <div class="swiper-slide">
+			      	<div ng-repeat='x in findphone1'>
+			      		<a href='#'>
+				      		<img ng-src="{{x.img}}" />
+				      		<div class='content'>
+				      			<div>{{x.title}}</div>
+				      			<div>{{x.content}}</div>
+				      			<div>{{x.money}}</div>
+				      		</div>
+			      		</a>
+			      	</div>
+			      </div>
+			    </div>
+			    <div class="swiper-pagination"></div>
+			    <div class="swiper-button-prev"></div>
+    			<div class="swiper-button-next"></div>
+		  </div>
+		</div>
+		<div class='static-accessory'>
+			<ul>
+				<li ng-repeat='x in staticAccessorylist'>
+					<a href='#'>
+						<div class='img'>
+							<img class='after' ng-src='{{x.imgafter}}' />
+							<img class='before' ng-src='{{x.imgbefore}}' />
+						</div>
+						<div class='content'>
+							<div>{{x.title}}</div>
+							<div>{{x.content}}</div>
+							<div>{{x.money}}</div>
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class='service-center'>
+			<div>
+				<a href='#'>
+					<img src='images/service0.jpg'/>
+				</a>
+			</div>
+			<div>
+				<a href='#'>
+					<img src='images/service1.jpg'/>
+				</a>
+			</div>
+			<div>
+				<a href='#'>
+					<img src='images/service2.jpg'/>
+				</a>
+			</div>
+		</div>
+		<div class='service'>
+			<ul>
+				<li ng-repeat='x in servicelist'>
+					<a href="#">
+						<img ng-src='{{x.img}}' />
+						<div>{{x.content}}</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class='bbs-center'>
+			<div class='bbs-title'>
+				<h1>追求源于热爱</h1>
+				<p>与千万志同道合的魅友畅快交流<a href=''> 进入社区></a></p>
+			</div>
+			<div class='bbs-swiper'>
+				<div ng-repeat='x in bbslist'>
+					<a href=''>
+						<img ng-src='{{x.bigimg}}'/>
+						<div class='userinfo'>
+							<div>
+								<img ng-src='{{x.smallimg}}'/>
+								<p>{{x.title}}</p>
+								<span class='watch'>{{x.watch}}</span>
+								<span class='common'>{{x.common}}</span>
+							</div>
+							<p>{{x.content}}</p>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class='footer'>
+			<div class='footer-container'>
+				<div class='footer-wrap'>
+					<ul>
+						<li ng-repeat='x in footerlist'>
+							<img ng-src='{{x.img}}'/>
+							<a href=''>{{x.title}}</a>
+						</li>
+					</ul>
+					<div class='footer-service'>
+						<span>24小时全球服务热线</span>
+						<p>400-788-3333</p>
+						<a href=''>
+							<img src='images/liaotian.png'/>
+							<span>在线客服</span>
+						</a>
+					</div>
+				</div>
+				<div class='line'></div>
+				<div class='footer-infowrap'>
+					<ul>
+						<li ng-repeat="x in infolist"><a href=''>{{x}}</a></li>
+						<li><span></span><a href=''>中文</a></li>
+					</ul>
+					<div class='last'>
+						<span>©2017 Meizu Telecom Equipment Co., Ltd. All rights reserved.&nbsp;&nbsp;&nbsp;&nbsp;</span>
+						<a href=''>粤ICP备13003602号&nbsp;</a>
+						<a href=''>合字B2-20170010&nbsp;</a>
+						<a href=''>营业执照&nbsp;</a>
+						<a href=''>法律声明&nbsp;</a>
+						<span><i class='yuegong'></i>粤公网安备 44049102496009 号</span>
+						<span>
+							<i class='dun'></i>
+							<i class='dian'></i>
+							<i class='xin'></i>
+						</span>
+						<span class='right'>
+							<i class='weibo'></i>
+							<i class='weixin'></i>
+							<i class='kongjian'></i>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/storge.js" ></script>
+	</body>
+</html>
